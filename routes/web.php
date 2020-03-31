@@ -32,3 +32,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user','UserController@index');
+
+Route::get('/user/delete/{id}','UserController@destroy');

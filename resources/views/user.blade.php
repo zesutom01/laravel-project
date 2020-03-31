@@ -1,5 +1,17 @@
 @extends('layouts.app')
 
+@section('script')
+<script>
+  $(function(){
+    $('.btn-delete').click(function(){
+      if(confirm('Do you want to delete User #' + $(this).data('id'))){
+        location.href = '/user/delete/' + $(this).data('id');
+      }
+    });
+  });
+</script>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -28,6 +40,7 @@
                           <td>{{ $user->id }}</td>
                           <td>{{ $user->name }}</td>
                           <td>{{ $user->email }}</td>
+                          <td><button data-id="{{ $user->id }}" class="btn btn-danger btn-sm btn-delete">Delete</button></td>
                         </tr>
                         @endforeach
                       </tbody>
