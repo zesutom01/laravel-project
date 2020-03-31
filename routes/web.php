@@ -17,11 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts','postController@index');
+Route::get('/posts',function(){
+    return view('post');
+});
 
-Route::get('/posts/{id}','postController@show');
-
-Route::post('/posts','PostController@store');
+Route::get('/posts/{id}',function($id){
+  return view('post-single',[
+    'id' => $id
+  ]);
+});
 
 Auth::routes();
 
@@ -35,4 +39,4 @@ Route::get('/user','UserController@index');
 
 Route::get('/user/delete/{id}','UserController@destroy');
 
- Route::post('/user','UserController@store');
+Route::post('/user','UserController@store');

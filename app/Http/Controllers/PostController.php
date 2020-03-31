@@ -17,11 +17,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        // return Post::all();
-        return view('post',[
-          'title' => 'List all my post',
-          'posts' => Post::all()
-        ]);
+        return Post::simplePaginate(10);
+
+
     }
 
     /**
@@ -43,8 +41,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
       $validator = Validator::make($request->all(),[
-        'title' =>  'required|max:20
-        ',
+        'title' =>  'required|max:20',
         'text' => 'required',
         'author' => 'integer',
       ]);
