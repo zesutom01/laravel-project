@@ -7,8 +7,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Title</th>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
         </tr>
       </thead>
       <tbody>
