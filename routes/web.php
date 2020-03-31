@@ -22,3 +22,7 @@ Route::get('/posts','postController@index');
 Route::get('/posts/{id}','postController@show');
 
 Route::post('/posts','PostController@store'); 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
