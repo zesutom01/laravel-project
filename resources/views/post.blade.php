@@ -31,11 +31,13 @@ $(function(){
     }
     if(resp.next_page_url == null){
       $('#btn-next').hide();
+      $('#btn-prev').attr('href',resp.prev_page_url.replace('api/',''));
     }else if (resp.prev_page_url == null) {
       $('#btn-prev').hide();
+      $('#btn-next').attr('href',resp.next_page_url.replace('api/',''));
     }
-    $('#btn-next').attr('href',resp.next_page_url.replace('api/',''));
-    $('#btn-prev').attr('href',resp.prev_page_url.replace('api/',''));
+
+
  });
 });
 </script>
